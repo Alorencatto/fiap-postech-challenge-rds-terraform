@@ -1,6 +1,6 @@
 provider "aws" {
 #   shared_credentials_file = "/home/user/.aws/credentials"
-  profile = "academy"
+  # profile = "academy"
   region = "us-east-1"
 }
 
