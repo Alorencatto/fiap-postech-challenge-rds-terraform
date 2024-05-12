@@ -1,6 +1,6 @@
 # Terraform EKS AWS Academy
 
-This project deploy an RDS Database in AWS Academy account using terraform and github actions for academic proposes.
+This project deploy a RDS Database in AWS Academy account using terraform and github actions for academic proposes.
 
 ## Update terraform credentials
 
