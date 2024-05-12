@@ -1,9 +1,3 @@
-provider "aws" {
-#   shared_credentials_file = "/home/user/.aws/credentials"
-  # profile = "academy"
-  region = "us-east-1"
-}
-
 data "aws_vpc" "default" {
   default = true
 }
