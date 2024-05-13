@@ -73,5 +73,28 @@ backend "s3" {
 
 and repeat the steps from **2** to **4**
 
+## Destroying
+
+1. Backup terraform state
+`terraform state pull > bkup.json`
+
+2. Get terraform state
+`terraform state list`
+
+3. Remove resources from list
+```
+terraform state rm "aws_kms_alias.key-alias"
+terraform state rm "aws_kms_key.terraform-bucket-key"
+terraform state rm "aws_s3_bucket.terraform-state"
+terraform state rm "aws_s3_bucket_server_side_encryption_configuration.terraform-state"
+terraform state rm "aws_dynamodb_table.terraform-state"
+terraform state rm "aws_vpc.main_vpc"
+
+
+```
+
+4. Terraform destroy
+`terraform destroy`
+
 ## Resources
 

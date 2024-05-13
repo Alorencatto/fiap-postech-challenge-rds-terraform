@@ -9,9 +9,9 @@ resource "random_string" "fiap-postech-selfservice-fastfood-database-password" {
   special = false
 }
 
-resource "aws_security_group" "fiap-postech-selfservice-fastfood" {
+resource "aws_security_group" "fiap-postech-selfservice-fastfood-rds" {
   vpc_id      = data.aws_vpc.default.id
-  name        = "fiap-postech-selfservice-fastfood-sg"
+  name        = "fiap-postech-selfservice-fastfood-sg-rds"
   description = "Allow all inbound for Postgres on Fiap postech selfservice fast food project"
 
   ingress {
@@ -30,7 +30,7 @@ resource "aws_db_instance" "default" {
   engine_version         = var.engine_version
   skip_final_snapshot    = true
   publicly_accessible    = true
-  vpc_security_group_ids = [aws_security_group.fiap-postech-selfservice-fastfood.id]
+  vpc_security_group_ids = [aws_security_group.fiap-postech-selfservice-fastfood-rds.id]
   username               = var.username
   password               = random_string.fiap-postech-selfservice-fastfood-database-password.result
 }
